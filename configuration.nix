@@ -59,7 +59,7 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = false;
-  services.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome.enable = false;
   services.gnome.games.enable = false;
   services.desktopManager.cosmic.enable = true;
   

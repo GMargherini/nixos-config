@@ -49,6 +49,7 @@
         libreoffice
         lua-language-server
         mpv
+        nautilus
         newsboat
         nushell
         nvtopPackages.amd
