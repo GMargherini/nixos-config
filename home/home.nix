@@ -126,9 +126,6 @@
     # EDITOR = "emacs";
   };
     imports = [
-    ./waybar/default.nix
-    ./swaync/default.nix
-    ./neovim/default.nix
     ./config/yt-dlp.nix
     ./hypr/hyprland.nix
     ./hypr/hyprpaper.nix
