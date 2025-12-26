@@ -154,7 +154,7 @@
       "x-scheme-handler/http" = "firefox";
       "x-scheme-handler/https" = "firefox";
       "inode/directory" = "nautilus";
-      "application/pdf" = "evince";
+      "application/pdf" = "cosmic-reader";
     };
   };
 }
