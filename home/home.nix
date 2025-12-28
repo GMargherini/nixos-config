@@ -132,7 +132,6 @@
     ./hypr/hyprlock.nix
     ./config/ghostty.nix
     ./config/lutris.nix
-    ./config/fish.nix
     ./config/starship.nix
     ./config/nushell.nix
     ./rofi/default.nix
