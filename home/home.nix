@@ -131,10 +131,10 @@
     ./hypr/hyprpaper.nix
     ./hypr/hyprlock.nix
     ./config/ghostty.nix
-    # ./config/lutris.nix
+    ./config/lutris.nix
     ./config/fish.nix
     ./rofi/default.nix
-    ./helix/default.nix
+    (import ./helix/default.nix {pkgs=pkgs;})
     (import ./config/themeing.nix {pkgs=pkgs;})
   ];
   programs = {
