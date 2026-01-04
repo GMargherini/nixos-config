@@ -29,6 +29,7 @@
         cowsay
         devtoolbox
         discord
+        dolphin-emu
         fastfetch
         fzf
         ghostty
