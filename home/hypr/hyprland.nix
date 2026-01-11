@@ -63,15 +63,6 @@
           active_opacity = 1.0;
           inactive_opacity = 1.0;
 
-          # https://wiki.hypr.land/Configuring/Variables/#blur
-          blur = {
-              enabled = false;
-              size = 6;
-              passes = 2;
-
-              vibrancy = 0.1696;
-          };
-
           shadow = {
             enabled = false;
           };
@@ -231,17 +222,8 @@
             ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
           ];
 
-          windowrule = [
-            "suppressevent maximize, class:.*"
-            "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-          ];
-          layerrule = [
-            "blur, waybar"
-            "blur, anyrun"
-            "blur, rofi"
-            "blur, swaync"
-            "blur, swaync-client"
-          ];
+          windowrule = [];
+          layerrule = [];
       };
   };
 }

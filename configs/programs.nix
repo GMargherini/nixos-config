@@ -22,6 +22,4 @@
   programs.partition-manager.enable = true;
   programs.dconf.enable = true;
   programs.kdeconnect.enable = true;
-  programs.adb.enable = true;
- 
 }

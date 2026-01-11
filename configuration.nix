@@ -126,6 +126,7 @@
   environment.systemPackages =
     let 
       unstable = with pkgs; [
+      android-tools
       file
       gcc
       git
