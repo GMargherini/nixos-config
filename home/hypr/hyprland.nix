@@ -42,7 +42,7 @@
           border_size = 2;
 
           # https://wiki.hypr.land/Configuring/Variables/#variable-types for info about colors
-          "col.active_border" = "rgb(bd93f9)";
+          "col.active_border" = "rgb(37f499)";
           "col.inactive_border" = "rgb(595959)";
 
           # Set to true enable resizing windows by clicking and dragging on borders and gaps
