@@ -12,13 +12,12 @@
         ];
 
         "$mainMod" = "SUPER";
-        "$menu" = "rofi -show drun";
+        "$menu" = "noctalia-shell ipc call launcher toggle";
         "$terminal" = "ghostty";
 
         exec-once = [
           "systemctl --user start hyprpolkitagent"
           "noctalia-shell"
-          "hyprpaper"
         ];
 
         env = [

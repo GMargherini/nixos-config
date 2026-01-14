@@ -6,6 +6,11 @@
       inputs.noctalia.homeModules.default
     ];
 
+    home.file.".cache/noctalia/wallpapers.json" = {
+      text = builtins.toJSON {
+        defaultWallpaper = "/home/dolphin/Pictures/Wallpapers/4K/Stormy field.jpg";
+      };
+    };
     # configure options
     programs.noctalia-shell = {
       enable = true;
@@ -19,6 +24,9 @@
           floating = false;
           widgets = {
             left = [
+              {
+                id = "Launcher";
+              }
               {
                 hideUnoccupied = false;
                 id = "Workspace";
@@ -68,7 +76,7 @@
             ];
           };
         };
-        colorSchemes.predefinedScheme = "Dracula";
+        colorSchemes.predefinedScheme = "Eldritch";
         general = {
           avatarImage = "/home/dolphin/.face";
           radiusRatio = 0.0;
@@ -82,7 +90,7 @@
           enabled = false;
         };
         wallpaper = {
-          enabled = false;
+          enabled = true;
         };
       };
       # this may also be a string or a path to a JSON file,

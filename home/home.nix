@@ -129,8 +129,6 @@
     imports = [
     ./config/yt-dlp.nix
     ./hypr/hyprland.nix
-    ./hypr/hyprpaper.nix
-    ./hypr/hyprlock.nix
     ./config/ghostty.nix
     ./config/lutris.nix
     ./config/starship.nix
