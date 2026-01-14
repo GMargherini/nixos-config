@@ -40,7 +40,6 @@
         htop
         hyprcursor
         hyprland
-        hyprpaper
         inkscape
         kdePackages.isoimagewriter
         kdePackages.kdeconnect-kde
@@ -60,12 +59,12 @@
         pika-backup
         presenterm
         remmina
-        # (retroarch.withCores (cores: with cores; [
-        #   dolphin
-        #   mgba
-        #   snes9x
-        #   mupen64plus
-        # ]))
+        (retroarch.withCores (cores: with cores; [
+          dolphin
+          mgba
+          snes9x
+          mupen64plus
+        ]))
         ripgrep
         ripgrep-all
         rofi
