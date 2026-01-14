@@ -58,6 +58,7 @@
         perf
         pika-backup
         presenterm
+        qutebrowser
         remmina
         (retroarch.withCores (cores: with cores; [
           dolphin
