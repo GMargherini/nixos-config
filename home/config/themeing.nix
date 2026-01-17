@@ -13,8 +13,8 @@
     enable = true;
 
     theme = {
-      package = pkgs.gnome-themes-extra;
-      name = "Adwaita";
+      package = pkgs.dracula-theme;
+      name = "Dracula";
     };
 
     cursorTheme = {
@@ -24,8 +24,8 @@
     };
 
     iconTheme = {
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.dracula-icon-theme;
+      name = "Dracula";
     };
 
     font = {

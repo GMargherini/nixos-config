@@ -12,15 +12,12 @@
         ];
 
         "$mainMod" = "SUPER";
-        "$menu" = "rofi -show drun";
+        "$menu" = "noctalia-shell ipc call launcher toggle";
         "$terminal" = "ghostty";
 
         exec-once = [
           "systemctl --user start hyprpolkitagent"
-          "swaync"
-          "swaync-client"
-          "waybar"
-          "hyprpaper"
+          "noctalia-shell"
         ];
 
         env = [
@@ -45,7 +42,7 @@
           border_size = 2;
 
           # https://wiki.hypr.land/Configuring/Variables/#variable-types for info about colors
-          "col.active_border" = "rgb(2E8B57)";
+          "col.active_border" = "rgb(37f499)";
           "col.inactive_border" = "rgb(595959)";
 
           # Set to true enable resizing windows by clicking and dragging on borders and gaps
@@ -65,13 +62,8 @@
           active_opacity = 1.0;
           inactive_opacity = 1.0;
 
-          # https://wiki.hypr.land/Configuring/Variables/#blur
-          blur = {
-              enabled = true;
-              size = 6;
-              passes = 2;
-
-              vibrancy = 0.1696;
+          shadow = {
+            enabled = false;
           };
         };
 
@@ -229,17 +221,8 @@
             ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
           ];
 
-          windowrule = [
-            "suppressevent maximize, class:.*"
-            "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-          ];
-          layerrule = [
-            "blur, waybar"
-            "blur, anyrun"
-            "blur, rofi"
-            "blur, swaync"
-            "blur, swaync-client"
-          ];
+          windowrule = [];
+          layerrule = [];
       };
   };
 }

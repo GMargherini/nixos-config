@@ -1,8 +1,9 @@
-{
+{pkgs, ...}:{
   programs.helix = {
     enable = true;
+    package = pkgs.evil-helix;
     settings = {
-      theme = "dark_plus";
+      theme = "material_darker";
       editor = {
         line-number = "relative";
         lsp.display-messages = true;

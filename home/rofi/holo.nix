@@ -1,7 +1,12 @@
 {
   home.file.".config/rofi/config.rasi".text = ''
+    // Write your configuration
+
     @theme "~/.config/rofi/themes/my_theme.rasi"
     listview {
+      columns:       1;
+      lines:         5;
+      cycle:         true;
       dynamic:       true;
       layout:        vertical;
       flow:          vertical;
@@ -17,14 +22,27 @@
  *
  * Based on Base16 Material Color Scheme (https://github.com/ntpeters/base16-materialtheme-scheme)
  *
- * Modified by: Dolphin
+ * Modified by: Dave Davenport
+ * User: Tomaszal
+ * Copyright: Tomas Zaluckij
  */
 
 * {
-        base00: #282a36;
+        base00: #263238;
+        base01: #2E3C43;
+        base02: #314549;
         base03: #546E7A;
-        base07: #f8f8f2;
-        base0D: #bd93f9;
+        base04: #B2CCD6;
+        base05: #EEFFFF;
+        base06: #EEFFFF;
+        base07: #FFFFFF;
+        base08: #F07178;
+        base09: #F78C6C;
+        base0A: #FFCB6B;
+        base0B: #C3E88D;
+        base0C: #89DDFF;
+        base0D: #2E8B57;
+        base0E: #C792EA;
         base0F: #FF5370;
 
         /*base0D: #00BCD4;*/
@@ -37,10 +55,9 @@
 
 window {
         transparency: "real";
-        background-color: @base00;
+        background-color: #80808010; /*base00 + CC (80% opacity)*/
         border-radius: 10px;
         width: 30%;
-        height: 50%;
 }
 
 mainbox {
@@ -147,7 +164,7 @@ element normal urgent, element selected urgent, element alternate urgent {
 }
 
 element normal active, element selected active, element alternate active {
-        text-color: @base07;
+        text-color: @base0B;
 }
   '';
 }

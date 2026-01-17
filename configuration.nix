@@ -52,9 +52,14 @@
   services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.cosmic-greeter.enable = true;
-  services.desktopManager.cosmic.enable = true;
   services.desktopManager.cosmic.xwayland.enable = true;
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      animation = "cmatrix";
+      bigclock = "en";
+    };
+  };
 
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -116,6 +121,7 @@
       gcc
       git
       hyprpolkitagent
+      hyprland
       ly
       neovim
       pmbootstrap

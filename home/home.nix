@@ -1,4 +1,4 @@
-{ pkgs, pkgs-stable, ... }:
+{ pkgs, pkgs-stable, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -28,24 +28,28 @@
         cbonsai
         cowsay
         devtoolbox
+        discord
+        dolphin-emu
         fastfetch
         fzf
         ghostty
-	handbrake
+        gnomeExtensions.blur-my-shell
+        gnomeExtensions.dash-to-dock
+        gnomeExtensions.just-perfection
         heroic
         htop
         hyprcursor
         hyprland
-        hyprpaper
         inkscape
         kdePackages.isoimagewriter
         kdePackages.kdeconnect-kde
         kdePackages.ktorrent
         kdePackages.partitionmanager
+        lact
         libreoffice
         lua-language-server
-	makemkv
         mpv
+        nautilus
         newsboat
         nushell
         nvtopPackages.amd
@@ -54,13 +58,14 @@
         perf
         pika-backup
         presenterm
+        qutebrowser
         remmina
-        # (retroarch.withCores (cores: with cores; [
-        #   dolphin
-        #   mgba
-        #   snes9x
-        #   mupen64plus
-        # ]))
+        (retroarch.withCores (cores: with cores; [
+          dolphin
+          mgba
+          snes9x
+          mupen64plus
+        ]))
         ripgrep
         ripgrep-all
         rofi
@@ -122,13 +127,14 @@
     # EDITOR = "emacs";
   };
     imports = [
-    ./neovim/default.nix
     ./config/yt-dlp.nix
+    ./hypr/hyprland.nix
     ./config/ghostty.nix
-    # ./config/lutris.nix
-    ./config/fish.nix
+    ./config/lutris.nix
+    ./config/starship.nix
+    ./config/nushell.nix
     ./rofi/default.nix
-    ./helix/default.nix
+    (import ./helix/default.nix {pkgs=pkgs;})
     (import ./config/themeing.nix {pkgs=pkgs;})
   ];
   programs = {
@@ -144,8 +150,8 @@
       "text/html" = "firefox";
       "x-scheme-handler/http" = "firefox";
       "x-scheme-handler/https" = "firefox";
-      "inode/directory" = "dolphin";
-      "application/pdf" = "okular";
+      "inode/directory" = "nautilus";
+      "application/pdf" = "cosmic-reader";
     };
   };
 }
