@@ -2,7 +2,7 @@
 	services.displayManager.ly = {
 		enable = true;
 		settings = {
-			animation = "CMatrix";
+			animation = "ColorMix";
 			numlock = true;
 			bigclock = "en";
 		};
