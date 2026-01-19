@@ -21,7 +21,6 @@
     "video=DP-2:2560x1440@60"
     "video=HDMI-A-1:3840x2160@60"
   ];
-  boot.initrd.kernelModules = ["amdgpu"];
 
   security.polkit.enable = true;
   networking.hostName = "mainframe"; # Define your hostname.
