@@ -13,10 +13,11 @@
     enable = true;
 
     theme = {
-      package = pkgs.dracula-theme;
-      name = "Dracula";
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
     };
-
+    colorScheme = "dark";
+    
     cursorTheme = {
       package = pkgs.phinger-cursors;
       name = "phinger-cursors-light";
@@ -24,8 +25,8 @@
     };
 
     iconTheme = {
-      package = pkgs.dracula-icon-theme;
-      name = "Dracula";
+      package = pkgs.tela-icon-theme;
+      name = "Tela-green";
     };
 
     font = {
@@ -37,7 +38,7 @@
     enable = true;
     platformTheme.name = "adwaita";
     style = {
-      name = "Adwaita";
+      name = "Adwaita-dark";
       package = pkgs.adwaita-qt;
     };
   };
