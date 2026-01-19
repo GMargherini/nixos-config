@@ -20,11 +20,26 @@
       language-server.typescript-language-server = {
         command = "rust-analyzer";
       };
-      language = [{
-        name = "rust";
-        auto-format = true;
-        formatter.command = "cargo fmt";
-      }];
+      language-server.ruff-lsp = {
+        command = "ruff-lsp";
+      };
+      language = [
+        {
+          name = "rust";
+          auto-format = true;
+          formatter.command = "cargo fmt";
+          language-servers = [
+            "rust-analyzer"
+          ];
+        }
+        {
+           name = "python";
+           language-servers = [
+             "pyright"
+             "ruff-lsp"
+           ];
+        }
+      ];
     };
   };
 }
