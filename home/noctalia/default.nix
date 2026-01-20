@@ -8,7 +8,7 @@
 
     home.file.".cache/noctalia/wallpapers.json" = {
       text = builtins.toJSON {
-        defaultWallpaper = "/home/dolphin/Pictures/Wallpapers/4K/Stormy field.jpg";
+        defaultWallpaper = "/home/dolphin/Pictures/green-sky-mountains-and-trees.jpg";
       };
     };
     # configure options
