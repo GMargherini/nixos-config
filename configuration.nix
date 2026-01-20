@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-stable, ... }:
+{ config, pkgs, pkgs-stable, inputs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -56,7 +56,7 @@
   services.displayManager.ly = {
     enable = true;
     settings = {
-      animation = "cmatrix";
+      animation = "matrix";
       bigclock = "en";
     };
   };
@@ -116,6 +116,7 @@
   environment.systemPackages =
     let 
       unstable = with pkgs; [
+      android-tools
       exfat
       file
       gcc

@@ -9,10 +9,18 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    quickshell = {
+      url = "github:outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    attrs @ { nixpkgs, home-manager, nixpkgs-stable, ... }:
+    inputs @ { nixpkgs, home-manager, nixpkgs-stable, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -39,6 +47,7 @@
               home-manager.backupFileExtension = "bak";
               home-manager.extraSpecialArgs = { inherit pkgs-stable; };
             }
+            (import ./home/noctalia/default.nix {inputs=inputs;})
           ];
 	      };
       };
