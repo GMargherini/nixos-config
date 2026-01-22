@@ -79,11 +79,11 @@
         texlive.combined.scheme-full
         vimPlugins.LazyVim
         vlc
-        vscodium
         waybar
         webcamoid
         wineWowPackages.staging
         yazi
+        zed-editor
         zellij
 
         fira
