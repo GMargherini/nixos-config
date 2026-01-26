@@ -56,7 +56,6 @@
         obsidian
         onlyoffice-desktopeditors
         perf
-        pika-backup
         presenterm
         qutebrowser
         remmina
@@ -97,6 +96,7 @@
         proggyfonts
       ];
     stable = with pkgs-stable; [
+      pika-backup
     ];
     in stable ++ unstable;
   
