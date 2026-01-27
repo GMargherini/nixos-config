@@ -53,6 +53,8 @@
         mpv
         nautilus
         newsboat
+        nil
+        nixpkgs-fmt
         nushell
         nvtopPackages.amd
         obsidian

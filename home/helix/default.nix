@@ -39,6 +39,12 @@
              "ruff-lsp"
            ];
         }
+        {
+          name = "nix";
+          formatter = {
+            command = "nixpkgs-fmt";
+          };
+        }
       ];
     };
   };
