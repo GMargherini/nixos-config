@@ -99,15 +99,16 @@
         noto-fonts-color-emoji
         proggyfonts
       ];
-    stable = with pkgs-stable; [
-      pika-backup
-    ];
-    in stable ++ unstable;
-  
+      stable = with pkgs-stable; [
+        pika-backup
+      ];
+    in
+    stable ++ unstable;
+
   fonts.fontconfig.enable = true;
   programs.git = {
     enable = true;
-    settings.user.name  = "GMargherini";
+    settings.user.name = "GMargherini";
     settings.user.email = "giorgio.margherini@gmail.com";
   };
 
@@ -130,7 +131,7 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
-    imports = [
+  imports = [
     ./config/yt-dlp.nix
     ./hypr/hyprland.nix
     ./config/ghostty.nix
@@ -138,8 +139,9 @@
     ./config/starship.nix
     ./config/nushell.nix
     ./rofi/default.nix
-    (import ./helix/default.nix {pkgs=pkgs;})
-    (import ./config/themeing.nix {pkgs=pkgs;})
+    ./niri/default.nix
+    (import ./helix/default.nix { pkgs = pkgs; })
+    (import ./config/themeing.nix { pkgs = pkgs; })
   ];
   programs = {
     yazi.enable = true;
