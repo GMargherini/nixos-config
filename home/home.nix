@@ -22,6 +22,7 @@
     let
       unstable = with pkgs; [
         adwaita-icon-theme
+        alacritty
         audacity
         bat
         calc
@@ -36,6 +37,7 @@
         gnomeExtensions.blur-my-shell
         gnomeExtensions.dash-to-dock
         gnomeExtensions.just-perfection
+        godot
         heroic
         htop
         hyprcursor
@@ -144,6 +146,7 @@
     mpv.enable = true;
     home-manager.enable = true;
   };
+  services.polkit-gnome.enable = true;
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
