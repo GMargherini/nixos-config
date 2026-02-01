@@ -1,4 +1,4 @@
-{pkgs}:{
+{ pkgs }: {
   home.pointerCursor = {
     enable = true;
     gtk.enable = true;
@@ -7,6 +7,7 @@
     package = pkgs.phinger-cursors;
     name = "phinger-cursors-light";
     size = 32;
+    sway.enable = true;
   };
 
   gtk = {
@@ -17,7 +18,7 @@
       package = pkgs.gnome-themes-extra;
     };
     colorScheme = "dark";
-    
+
     cursorTheme = {
       package = pkgs.phinger-cursors;
       name = "phinger-cursors-light";

@@ -1,4 +1,4 @@
-{ pkgs, pkgs-stable, inputs, ... }:
+{ pkgs, pkgs-stable, lib, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -15,7 +15,6 @@
   # release notes.
   home.stateVersion = "25.05"; # Please read the comment before changing.
 
-  services.kdeconnect.enable = true;
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages =
@@ -38,6 +37,7 @@
         gnomeExtensions.dash-to-dock
         gnomeExtensions.just-perfection
         godot
+        grim
         heroic
         htop
         hyprcursor
@@ -47,6 +47,7 @@
         kdePackages.kdeconnect-kde
         kdePackages.ktorrent
         kdePackages.partitionmanager
+        kdePackages.polkit-kde-agent-1
         lact
         libreoffice
         lua-language-server
@@ -73,11 +74,11 @@
         ripgrep-all
         rofi
         ryubing
-        rust-analyzer
         scrcpy
+        slurp
         starship
         stylua
-        swaynotificationcenter
+        swayfx
         tdf
         texlive.combined.scheme-full
         vimPlugins.LazyVim
@@ -139,7 +140,7 @@
     ./config/starship.nix
     ./config/nushell.nix
     ./rofi/default.nix
-    ./niri/default.nix
+    (import ./sway/sway.nix { lib = lib; pkgs = pkgs; })
     (import ./helix/default.nix { pkgs = pkgs; })
     (import ./config/themeing.nix { pkgs = pkgs; })
   ];
@@ -150,7 +151,11 @@
     mpv.enable = true;
     home-manager.enable = true;
   };
-  services.polkit-gnome.enable = true;
+
+  services = {
+    polkit-gnome.enable = true;
+    kdeconnect.enable = true;
+  };
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
@@ -159,6 +164,23 @@
       "x-scheme-handler/https" = "firefox";
       "inode/directory" = "nautilus";
       "application/pdf" = "cosmic-reader";
+    };
+  };
+  systemd.user.services.polkit-gnome-authentication-agent-1 = {
+    Unit = {
+      Description = "polkit-gnome-authentication-agent-1";
+      Wants = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
     };
   };
 }

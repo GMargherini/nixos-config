@@ -1,6 +1,5 @@
-{pkgs, ...}:{
+{ pkgs, ... }: {
   programs = {
-    niri.enable = true;
     hyprland = {
       enable = true;
       withUWSM = false;
@@ -23,6 +22,6 @@
     ];
     partition-manager.enable = true;
     dconf.enable = true;
-    kdeconnect.enable = true;   
+    kdeconnect.enable = true;
   };
 }

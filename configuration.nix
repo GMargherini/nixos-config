@@ -5,7 +5,8 @@
 { config, pkgs, pkgs-stable, ... }:
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./configs/programs.nix
       # (import ./configs/amdgpu.nix {config=config; pkgs=pkgs;})
@@ -61,7 +62,7 @@
   services.desktopManager.gnome.enable = false;
   services.gnome.games.enable = false;
   services.desktopManager.cosmic.enable = true;
-  
+
   services.displayManager.ly = {
     enable = true;
     settings = {
@@ -93,12 +94,12 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-  
+
 
   systemd.services.lact = {
     description = "AMDGPU Control Daemon";
-    after = ["multi-user.target"];
-    wantedBy = ["multi-user.target"];
+    after = [ "multi-user.target" ];
+    wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = "${pkgs.lact}/bin/lact daemon";
     };
@@ -123,41 +124,43 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages =
-    let 
+    let
       unstable = with pkgs; [
-      android-tools
-      file
-      gcc
-      git
-      hyprpolkitagent
-      ly
-      neovim
-      niri
-      pmbootstrap
-      pwvucontrol
-      rustup
-      tree
-      unzip
-      uutils-coreutils-noprefix
-      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      wget
-      xwayland-satellite
-      zig
-      zip
-    ];
-    stable = with pkgs-stable; [
-      cmake
-    ];
-    in unstable ++ stable;
+        android-tools
+        file
+        gcc
+        git
+        hyprpolkitagent
+        ly
+        neovim
+        niri
+        pmbootstrap
+        pwvucontrol
+        rustup
+        tree
+        unzip
+        uutils-coreutils-noprefix
+        vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+        wget
+        xwayland-satellite
+        zig
+        zip
+      ];
+      stable = with pkgs-stable; [
+        cmake
+      ];
+    in
+    unstable ++ stable;
 
 
-  fonts.packages = with pkgs; [ 
+  fonts.packages = with pkgs; [
     fira-code-symbols
     nerd-fonts.fira-code
   ];
-  
+
   xdg.portal = {
     enable = true;
+    wlr.enable = true;
     extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
   };
 
@@ -168,7 +171,7 @@
 
   # Open ports in the firewall.
   networking.firewall = rec {
-    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+    allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
     allowedUDPPortRanges = allowedTCPPortRanges;
   };
   # Or disable the firewall altogether.

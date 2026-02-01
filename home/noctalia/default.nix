@@ -8,7 +8,7 @@
 
     home.file.".cache/noctalia/wallpapers.json" = {
       text = builtins.toJSON {
-        defaultWallpaper = "/home/dolphin/Pictures/Wallpapers/4K/Stormy field.jpg";
+        defaultWallpaper = "/home/dolphin/Pictures/Wallpapers/Nord-Wallpapers/wallpapers/45.png";
       };
     };
     # configure options
@@ -76,7 +76,7 @@
             ];
           };
         };
-        colorSchemes.predefinedScheme = "Eldritch";
+        colorSchemes.predefinedScheme = "Nord";
         general = {
           avatarImage = "/home/dolphin/.face";
           radiusRatio = 0.0;
