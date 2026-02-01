@@ -33,9 +33,6 @@
         fastfetch
         fzf
         ghostty
-        gnomeExtensions.blur-my-shell
-        gnomeExtensions.dash-to-dock
-        gnomeExtensions.just-perfection
         godot
         grim
         heroic
@@ -61,7 +58,6 @@
         obsidian
         onlyoffice-desktopeditors
         perf
-        presenterm
         qutebrowser
         remmina
         (retroarch.withCores (cores: with cores; [
@@ -72,7 +68,6 @@
         ]))
         ripgrep
         ripgrep-all
-        rofi
         ryubing
         scrcpy
         slurp
@@ -83,7 +78,6 @@
         texlive.combined.scheme-full
         vimPlugins.LazyVim
         vlc
-        waybar
         webcamoid
         wineWowPackages.staging
         yazi
