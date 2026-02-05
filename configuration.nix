@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-stable, ... }:
+{ pkgs, pkgs-stable, ... }:
 {
   imports =
     [
@@ -13,16 +13,17 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.extraModprobeConfig = "options hid_apple fnmode=2";
-  boot.kernelParams = [
-    "video=DP-1:3840x2160@60"
-    "video=DP-2:2560x1440@60"
-    "video=HDMI-A-1:3840x2160@60"
-  ];
-
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    kernelPackages = pkgs.linuxPackages_latest;
+    extraModprobeConfig = "options hid_apple fnmode=2";
+    kernelParams = [
+      "video=DP-1:3840x2160@60"
+      "video=DP-2:2560x1440@60"
+      "video=HDMI-A-1:3840x2160@60"
+    ];
+  };
   security.polkit.enable = true;
   networking.hostName = "mainframe"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -64,10 +65,19 @@
   services.desktopManager.cosmic.enable = true;
 
   services.displayManager.ly = {
-    enable = true;
+    enable = false;
     settings = {
       animation = "colormix";
       bigclock = "en";
+    };
+  };
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd sway";
+        user = "dolphin";
+      };
     };
   };
   # Configure keymap in X11
