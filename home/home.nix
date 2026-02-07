@@ -134,7 +134,7 @@
     ./config/starship.nix
     ./config/nushell.nix
     ./rofi/default.nix
-    (import ./sway/sway.nix { lib = lib; pkgs = pkgs; })
+    (import ./sway/default.nix { lib = lib; pkgs = pkgs; })
     (import ./helix/default.nix { pkgs = pkgs; })
     (import ./config/themeing.nix { pkgs = pkgs; })
   ];
