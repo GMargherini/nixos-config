@@ -1,4 +1,4 @@
-{ pkgs, pkgs-stable, inputs, ... }:
+{ lib, pkgs, pkgs-stable, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -128,7 +128,6 @@
   };
     imports = [
     ./config/yt-dlp.nix
-    ./hypr/hyprland.nix
     ./config/ghostty.nix
     ./config/lutris.nix
     ./config/starship.nix
@@ -136,6 +135,7 @@
     ./rofi/default.nix
     (import ./helix/default.nix {pkgs=pkgs;})
     (import ./config/themeing.nix {pkgs=pkgs;})
+    (import ./sway/default.nix {lib=lib; pkgs=pkgs;})
   ];
   programs = {
     yazi.enable = true;

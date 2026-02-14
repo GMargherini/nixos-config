@@ -54,10 +54,19 @@
   # Enable the KDE Plasma Desktop Environment.
   services.desktopManager.cosmic.xwayland.enable = true;
   services.displayManager.ly = {
-    enable = true;
+    enable = false;
     settings = {
       animation = "matrix";
       bigclock = "en";
+    };
+  };
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --user-menu --cmd sway";
+        user = "dolphin";
+      };
     };
   };
 
