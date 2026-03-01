@@ -37,8 +37,6 @@
         grim
         heroic
         htop
-        hyprcursor
-        hyprland
         inkscape
         kdePackages.isoimagewriter
         kdePackages.kdeconnect-kde
@@ -79,10 +77,13 @@
         vimPlugins.LazyVim
         vlc
         webcamoid
-        wineWowPackages.staging
+        wineWow64Packages.staging
         yazi
         zed-editor
         zellij
+      ];
+      stable = with pkgs-stable; [
+        pika-backup
 
         fira
         fira-code
@@ -93,9 +94,6 @@
         noto-fonts
         noto-fonts-color-emoji
         proggyfonts
-      ];
-      stable = with pkgs-stable; [
-        pika-backup
       ];
     in
     stable ++ unstable;
@@ -128,7 +126,6 @@
   };
   imports = [
     ./config/yt-dlp.nix
-    ./hypr/hyprland.nix
     ./config/ghostty.nix
     ./config/lutris.nix
     ./config/starship.nix
