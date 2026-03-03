@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   programs = {
     hyprland = {
-      enable = true;
+      enable = false;
       withUWSM = false;
       xwayland.enable = true;
     };
