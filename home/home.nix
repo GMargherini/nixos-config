@@ -138,7 +138,10 @@
     (import ./config/themeing.nix { pkgs = pkgs; })
   ];
   programs = {
-    yazi.enable = true;
+    yazi = {
+      enable = true;
+      shellWrapperName = "y";
+    };
     zellij.enable = true;
     ripgrep.enable = true;
     mpv.enable = true;
