@@ -140,6 +140,7 @@
         file
         gcc
         git
+        jq
         ly
         neovim
         niri

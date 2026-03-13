@@ -20,7 +20,9 @@
         bar = {
           density = "compact";
           position = "top";
-          showCapsule = false;
+          useSeparateOpacity = true;
+          backgroundOpacity = 0;
+          showCapsule = true;
           floating = false;
           widgets = {
             left = [
