@@ -26,6 +26,7 @@
         bat
         calc
         cbonsai
+        clamav
         cowsay
         devtoolbox
         discord
