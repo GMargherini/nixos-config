@@ -13,25 +13,11 @@
     ];
 
   # Bootloader.
-<<<<<<< HEAD
-  boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-    kernelPackages = pkgs.linuxPackages_latest;
-    extraModprobeConfig = "options hid_apple fnmode=2";
-    kernelParams = [
-      "video=DP-1:3840x2160@60"
-      "video=DP-2:2560x1440@60"
-      "video=HDMI-A-1:3840x2160@60"
-    ];
-  };
-=======
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModprobeConfig = "options hid_apple fnmode=2";
 
->>>>>>> 162488f (first config)
   security.polkit.enable = true;
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -67,31 +53,10 @@
   services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
-<<<<<<< HEAD
-  services.displayManager.sddm.enable = false;
-  services.desktopManager.gnome.enable = false;
-  services.gnome.games.enable = false;
-  services.desktopManager.cosmic.enable = true;
-
-  services.displayManager.ly = {
-    enable = false;
-    settings = {
-      animation = "colormix";
-      bigclock = "en";
-    };
-  };
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --user-menu --cmd sway";
-        user = "dolphin";
-      };
-    };
-  };
-=======
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.desktopManager.plasma6.enable = false;
+  services.desktopManager.cosmic.enable = true;
 
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -100,9 +65,8 @@
   hardware.nvidia.prime = {
     intelBusId = "0:2:0";
     nvidiaBusId = "1:0:0";
-  }
+  };
   
->>>>>>> 162488f (first config)
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "it";
@@ -127,21 +91,6 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-<<<<<<< HEAD
-
-
-  systemd.services.lact = {
-    description = "AMDGPU Control Daemon";
-    after = [ "multi-user.target" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.lact}/bin/lact daemon";
-    };
-    enable = true;
-  };
-=======
-  
->>>>>>> 162488f (first config)
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 

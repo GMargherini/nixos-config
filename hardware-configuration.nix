@@ -10,24 +10,24 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-inteel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/f06927fc-f02c-4a6d-a3c4-8bce56c7a133";
+    { device = "/dev/disk/by-uuid/97ca016b-a32a-471a-a085-c667610f887f";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/D2FD-7DA4";
+    { device = "/dev/disk/by-uuid/C3B1-F2C2";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
-  fileSystems."/home/dolphin/Games-external" = {
-      device = "/dev/disk/by-uuid/90ba0932-14ac-42ab-a49c-246bcbb5df56";
-      fsType = "ext4";
-  };
-  swapDevices = [ ];
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/5c25b76b-272d-4194-a967-9d78a7c16883"; }
+    ];
+
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

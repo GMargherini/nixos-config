@@ -29,19 +29,9 @@
         clamav
         cowsay
         devtoolbox
-<<<<<<< HEAD
-        discord
-        dolphin-emu
-=======
->>>>>>> 162488f (first config)
         fastfetch
         fzf
         ghostty
-<<<<<<< HEAD
-        godot
-        grim
-=======
->>>>>>> 162488f (first config)
         heroic
         htop
         inkscape
@@ -49,12 +39,6 @@
         kdePackages.kdeconnect-kde
         kdePackages.ktorrent
         kdePackages.partitionmanager
-<<<<<<< HEAD
-        kdePackages.polkit-kde-agent-1
-        kitty
-        lact
-=======
->>>>>>> 162488f (first config)
         libreoffice
         lua-language-server
         mpv
@@ -84,7 +68,6 @@
         stylua
         swayfx
         tdf
-        texlive.combined.scheme-full
         vimPlugins.LazyVim
         vlc
         webcamoid
@@ -135,20 +118,11 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
-<<<<<<< HEAD
   imports = [
     ./config/yt-dlp.nix
     ./config/lutris.nix
     ./config/starship.nix
     ./config/nushell.nix
-=======
-    imports = [
-    ./neovim/default.nix
-    ./config/yt-dlp.nix
-    ./config/ghostty.nix
-    # ./config/lutris.nix
-    ./config/fish.nix
->>>>>>> 162488f (first config)
     ./rofi/default.nix
     ./kitty/default.nix
     (import ./sway/default.nix { lib = lib; pkgs = pkgs; })
@@ -176,8 +150,7 @@
       "text/html" = "firefox";
       "x-scheme-handler/http" = "firefox";
       "x-scheme-handler/https" = "firefox";
-<<<<<<< HEAD
-      "inode/directory" = "nautilus";
+      "inode/directory" = "cosmic-filles";
       "application/pdf" = "cosmic-reader";
     };
   };
@@ -196,10 +169,6 @@
       Restart = "on-failure";
       RestartSec = 1;
       TimeoutStopSec = 10;
-=======
-      "inode/directory" = "dolphin";
-      "application/pdf" = "okular";
->>>>>>> 162488f (first config)
     };
   };
 }
