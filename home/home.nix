@@ -124,7 +124,6 @@
     ./config/lutris.nix
     ./config/starship.nix
     ./config/nushell.nix
-    ./rofi/default.nix
     ./kitty/default.nix
     (import ./sway/default.nix { lib = lib; pkgs = pkgs; })
     (import ./helix/default.nix { pkgs = pkgs; })
