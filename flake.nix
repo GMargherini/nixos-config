@@ -33,7 +33,7 @@
     in
     {
       nixosConfigurations = {
-	      mainframe = nixpkgs.lib.nixosSystem {
+	      vivobook = nixpkgs.lib.nixosSystem {
           specialArgs = { 
             inherit pkgs-stable;
           };

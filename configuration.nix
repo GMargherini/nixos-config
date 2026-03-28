@@ -13,6 +13,7 @@
     ];
 
   # Bootloader.
+<<<<<<< HEAD
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
@@ -24,8 +25,15 @@
       "video=HDMI-A-1:3840x2160@60"
     ];
   };
+=======
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.extraModprobeConfig = "options hid_apple fnmode=2";
+
+>>>>>>> 162488f (first config)
   security.polkit.enable = true;
-  networking.hostName = "mainframe"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -59,6 +67,7 @@
   services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
+<<<<<<< HEAD
   services.displayManager.sddm.enable = false;
   services.desktopManager.gnome.enable = false;
   services.gnome.games.enable = false;
@@ -80,9 +89,23 @@
       };
     };
   };
+=======
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
+
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = true;  # see the note above
+
+  hardware.nvidia.prime = {
+    intelBusId = "0:2:0";
+    nvidiaBusId = "1:0:0";
+  }
+  
+>>>>>>> 162488f (first config)
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
+    layout = "it";
     variant = "";
   };
 
@@ -104,6 +127,7 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+<<<<<<< HEAD
 
 
   systemd.services.lact = {
@@ -115,6 +139,9 @@
     };
     enable = true;
   };
+=======
+  
+>>>>>>> 162488f (first config)
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
