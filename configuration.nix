@@ -13,10 +13,13 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.extraModprobeConfig = "options hid_apple fnmode=2";
+  boot =
+    {
+      loader.systemd-boot.enable = true;
+      loader.efi.canTouchEfiVariables = true;
+      kernelPackages = pkgs.linuxPackages_latest;
+      extraModprobeConfig = "options hid_apple fnmode=2";
+    };
 
   security.polkit.enable = true;
   networking.hostName = "nixos"; # Define your hostname.
@@ -53,20 +56,18 @@
   services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-  services.desktopManager.plasma6.enable = false;
+  services.displayManager.cosmic-greeter.enable = true;
   services.desktopManager.cosmic.enable = true;
 
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = true;  # see the note above
+  hardware.nvidia.open = true; # see the note above
 
   hardware.nvidia.prime = {
     intelBusId = "0:2:0";
     nvidiaBusId = "1:0:0";
   };
-  
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "it";
@@ -119,7 +120,6 @@
         jq
         ly
         neovim
-        niri
         pmbootstrap
         pwvucontrol
         rustup
