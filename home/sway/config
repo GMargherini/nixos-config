@@ -20,7 +20,11 @@ set $up K
 set $right L
 
 # Your preferred terminal emulator
+<<<<<<< HEAD
 set $term kitty
+=======
+set $term ghostty
+>>>>>>> vivobook
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -88,7 +92,10 @@ set {
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec 'swaymsg exit'
+<<<<<<< HEAD
     bindsym $mod+Shift+Escape exec poweroff
+=======
+>>>>>>> vivobook
 
 # Function keys
 bindsym XF86MonBrightnessDown exec sudo light -U 5

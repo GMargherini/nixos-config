@@ -8,7 +8,11 @@
 
     home.file.".cache/noctalia/wallpapers.json" = {
       text = builtins.toJSON {
+<<<<<<< HEAD
         defaultWallpaper = "/home/dolphin/Pictures/Wallpapers/nix-d-nord-aurora.jpg";
+=======
+        defaultWallpaper = "/home/dolphin/Pictures/green-sky-mountains-and-trees.jpg";
+>>>>>>> vivobook
       };
     };
     # configure options
@@ -20,9 +24,13 @@
         bar = {
           density = "compact";
           position = "top";
+<<<<<<< HEAD
           useSeparateOpacity = true;
           backgroundOpacity = 0;
           showCapsule = true;
+=======
+          showCapsule = false;
+>>>>>>> vivobook
           floating = false;
           widgets = {
             left = [
@@ -78,7 +86,11 @@
             ];
           };
         };
+<<<<<<< HEAD
         colorSchemes.predefinedScheme = "Nord";
+=======
+        colorSchemes.predefinedScheme = "Eldritch";
+>>>>>>> vivobook
         general = {
           avatarImage = "/home/dolphin/.face";
           radiusRatio = 0.0;

@@ -1,4 +1,4 @@
-{ pkgs, pkgs-stable, lib, ... }:
+{ lib, pkgs, pkgs-stable, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -120,6 +120,7 @@
   };
   imports = [
     ./config/yt-dlp.nix
+    ./config/ghostty.nix
     ./config/lutris.nix
     ./config/starship.nix
     ./config/nushell.nix

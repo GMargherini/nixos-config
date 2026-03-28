@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, pkgs-stable, ... }:
+{ config, pkgs, pkgs-stable, inputs, ... }:
 {
   imports =
     [
@@ -21,8 +21,9 @@
       extraModprobeConfig = "options hid_apple fnmode=2";
     };
 
+
   security.polkit.enable = true;
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "vivobook"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -56,7 +57,8 @@
   services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.cosmic-greeter.enable = true;
+  <<<<<<< HEAD
+    services.displayManager.cosmic-greeter.enable = true;
   services.desktopManager.cosmic.enable = true;
 
   hardware.graphics.enable = true;
@@ -113,6 +115,7 @@
   environment.systemPackages =
     let
       unstable = with pkgs; [
+        <<<<<<< HEAD
         android-tools
         file
         gcc

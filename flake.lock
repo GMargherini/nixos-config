@@ -7,11 +7,19 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1773422513,
         "narHash": "sha256-MPjR48roW7CUMU6lu0+qQGqj92Kuh3paIulMWFZy+NQ=",
         "owner": "nix-community",
         "repo": "home-manager",
         "rev": "ef12a9a2b0f77c8fa3dda1e7e494fca668909056",
+=======
+        "lastModified": 1772218752,
+        "narHash": "sha256-G8nArvOTZXU8DRvrzAdz3Elcj6kA/vMtvY9mrGLATtA=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "f3a30376bb9eb2f6f61816be7d6ed954b6d2a3b9",
+>>>>>>> vivobook
         "type": "github"
       },
       "original": {
@@ -22,11 +30,19 @@
     },
     "nixpkgs": {
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1773389992,
         "narHash": "sha256-wvfdLLWJ2I9oEpDd9PfMA8osfIZicoQ5MT1jIwNs9Tk=",
         "owner": "nixos",
         "repo": "nixpkgs",
         "rev": "c06b4ae3d6599a672a6210b7021d699c351eebda",
+=======
+        "lastModified": 1771848320,
+        "narHash": "sha256-0MAd+0mun3K/Ns8JATeHT1sX28faLII5hVLq0L3BdZU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "2fc6539b481e1d2569f25f8799236694180c0993",
+>>>>>>> vivobook
         "type": "github"
       },
       "original": {
@@ -60,11 +76,19 @@
         "noctalia-qs": "noctalia-qs"
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1773577186,
         "narHash": "sha256-X42nwkzQBtKKedJEq47dfxvVp9BFDzIuPH1lNYp4x6U=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
         "rev": "4cb3743a4f47fc60bd27006b45ae8b4c1dbb7ed2",
+=======
+        "lastModified": 1772283575,
+        "narHash": "sha256-Avh/W7rFoyx9JAgwkMfpQG7J9+AtytZ6EmqFLtADPh4=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "rev": "d886dd7861b8e6ff53dad320c53f665930396b02",
+>>>>>>> vivobook
         "type": "github"
       },
       "original": {
@@ -78,6 +102,7 @@
         "nixpkgs": [
           "noctalia",
           "nixpkgs"
+<<<<<<< HEAD
         ],
         "systems": "systems"
       },
@@ -87,6 +112,16 @@
         "owner": "noctalia-dev",
         "repo": "noctalia-qs",
         "rev": "6b9eceefde3d47ca83c544b54bcdd358be4cbd2f",
+=======
+        ]
+      },
+      "locked": {
+        "lastModified": 1772227064,
+        "narHash": "sha256-f821ZSoGpa/aXrWq0gPpea9qBnX8KDyavGKkptz2Mog=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-qs",
+        "rev": "0741d27d2f7db567270f139c5d1684614ecf9863",
+>>>>>>> vivobook
         "type": "github"
       },
       "original": {
@@ -102,11 +137,19 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1773480707,
         "narHash": "sha256-VkuO1LWpK7tS/YDmxJSDeONEwt1RFLPfOucQJwKnsV0=",
         "owner": "outfoxxed",
         "repo": "quickshell",
         "rev": "1b2519d9f3d963e575b8a1ef08fab47c7af0d1b3",
+=======
+        "lastModified": 1771926182,
+        "narHash": "sha256-QbXuSLhiSxOq6ydBL3+KGe1aiYWBW+e3J6qjJZaRMq0=",
+        "owner": "outfoxxed",
+        "repo": "quickshell",
+        "rev": "cddb4f061bab495f4473ca5f2c571b6c710efef7",
+>>>>>>> vivobook
         "type": "github"
       },
       "original": {
@@ -122,6 +165,7 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "noctalia": "noctalia",
         "quickshell": "quickshell"
+<<<<<<< HEAD
       }
     },
     "systems": {
@@ -137,6 +181,8 @@
         "owner": "nix-systems",
         "repo": "default-linux",
         "type": "github"
+=======
+>>>>>>> vivobook
       }
     }
   },
