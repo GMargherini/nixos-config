@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-stable, inputs, ... }:
+{ pkgs, pkgs-stable, ... }:
 {
   imports =
     [
@@ -57,8 +57,7 @@
   services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
-  <<<<<<< HEAD
-    services.displayManager.cosmic-greeter.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
   services.desktopManager.cosmic.enable = true;
 
   hardware.graphics.enable = true;
@@ -115,7 +114,6 @@
   environment.systemPackages =
     let
       unstable = with pkgs; [
-        <<<<<<< HEAD
         android-tools
         file
         gcc
@@ -150,7 +148,6 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = with pkgs; [ ];
   };
 
   # List services that you want to enable:
