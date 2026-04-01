@@ -49,7 +49,6 @@
         libreoffice
         lua-language-server
         mpv
-        nautilus
         newsboat
         nil
         nixpkgs-fmt
@@ -57,6 +56,7 @@
         nvtopPackages.amd
         obsidian
         onlyoffice-desktopeditors
+        pdftk
         perf
         qutebrowser
         remmina
@@ -158,7 +158,7 @@
       "text/html" = "firefox";
       "x-scheme-handler/http" = "firefox";
       "x-scheme-handler/https" = "firefox";
-      "inode/directory" = "nautilus";
+      "inode/directory" = "cosmic-files";
       "application/pdf" = "cosmic-reader";
     };
   };
