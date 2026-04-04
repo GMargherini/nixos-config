@@ -76,6 +76,7 @@
         swayfx
         tdf
         texlive.combined.scheme-full
+        uutils-coreutils-noprefix
         vimPlugins.LazyVim
         vlc
         webcamoid
@@ -158,25 +159,8 @@
       "text/html" = "firefox";
       "x-scheme-handler/http" = "firefox";
       "x-scheme-handler/https" = "firefox";
-      "inode/directory" = "cosmic-files";
-      "application/pdf" = "cosmic-reader";
-    };
-  };
-  systemd.user.services.polkit-gnome-authentication-agent-1 = {
-    Unit = {
-      Description = "polkit-gnome-authentication-agent-1";
-      Wants = [ "graphical-session.target" ];
-      After = [ "graphical-session.target" ];
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-    Service = {
-      Type = "simple";
-      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-      Restart = "on-failure";
-      RestartSec = 1;
-      TimeoutStopSec = 10;
+      "inode/directory" = "dolphin";
+      "application/pdf" = "okular";
     };
   };
 }

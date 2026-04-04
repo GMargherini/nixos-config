@@ -56,55 +56,36 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = false;
+  services = {
+    xserver.enable = false;
+    desktopManager.cosmic.enable = true;
+    desktopManager.plasma6.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = false;
-  services.desktopManager.gnome.enable = false;
-  services.gnome.games.enable = false;
-  services.desktopManager.cosmic.enable = true;
-
-  services.displayManager.ly = {
-    enable = false;
-    settings = {
-      animation = "colormix";
-      bigclock = "en";
-    };
-  };
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --user-menu --cmd sway";
-        user = "dolphin";
+    displayManager.ly = {
+      enable = false;
+      settings = {
+        animation = "colormix";
+        bigclock = "en";
       };
     };
-  };
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+    # Configure keymap in X11
+    xserver.xkb = {
+      layout = "us";
+      variant = "";
+    };
+    # Enable CUPS to print documents.
+    printing.enable = true;
+    # Enable sound with pipewire.
+    pulseaudio.enable = false;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
 
   systemd.services.lact = {
     description = "AMDGPU Control Daemon";
@@ -143,7 +124,6 @@
         jq
         ly
         neovim
-        niri
         pmbootstrap
         pwvucontrol
         rustup
@@ -171,7 +151,6 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = with pkgs; [ ];
   };
 
   # List services that you want to enable:
@@ -199,5 +178,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
