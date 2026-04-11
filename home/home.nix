@@ -125,7 +125,7 @@
   #  /etc/profiles/per-user/dolphin/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "vim";
   };
   imports = [
     ./config/yt-dlp.nix
@@ -150,7 +150,6 @@
   };
 
   services = {
-    polkit-gnome.enable = true;
     kdeconnect.enable = true;
   };
   xdg.mimeApps = {

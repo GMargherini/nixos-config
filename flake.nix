@@ -17,6 +17,9 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+    };
   };
 
   outputs =
@@ -33,23 +36,25 @@
     in
     {
       nixosConfigurations = {
-	      mainframe = nixpkgs.lib.nixosSystem {
-          specialArgs = { 
+        mainframe = nixpkgs.lib.nixosSystem {
+          specialArgs = {
             inherit pkgs-stable;
           };
           system = system;
           modules = [
             ./configuration.nix
-            home-manager.nixosModules.home-manager {
+            home-manager.nixosModules.home-manager
+            {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.dolphin = ./home/home.nix;
               home-manager.backupFileExtension = "bak";
               home-manager.extraSpecialArgs = { inherit pkgs-stable; };
             }
-            (import ./home/noctalia/default.nix {inputs=inputs;})
+            (import ./home/noctalia/default.nix { inputs = inputs; })
+            (import ./home/config/nixvim.nix { inputs = inputs; pkgs = pkgs; })
           ];
-	      };
+        };
       };
     };
 }
