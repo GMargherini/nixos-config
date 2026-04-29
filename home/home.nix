@@ -87,6 +87,7 @@
       ];
       stable = with pkgs-stable; [
         pika-backup
+        shipwright
 
         fira
         fira-code
