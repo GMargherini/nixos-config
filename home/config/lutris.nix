@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   programs.lutris = {
-    enable = true;
+    enable = false;
     winePackages = [pkgs.wine];
     runners = {
     };
