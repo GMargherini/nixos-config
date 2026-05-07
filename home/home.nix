@@ -26,6 +26,7 @@
         bat
         calc
         cbonsai
+        cdrkit
         clamav
         cowsay
         devtoolbox
@@ -46,6 +47,7 @@
         kdePackages.polkit-kde-agent-1
         kitty
         lact
+        lame
         libreoffice
         lua-language-server
         mpv
