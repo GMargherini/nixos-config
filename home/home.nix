@@ -23,6 +23,7 @@
         adwaita-icon-theme
         alacritty
         audacity
+        asunder
         bat
         calc
         cbonsai
@@ -39,7 +40,6 @@
         kdePackages.kdeconnect-kde
         kdePackages.ktorrent
         kdePackages.partitionmanager
-        libreoffice
         lua-language-server
         mpv
         nautilus
@@ -49,7 +49,6 @@
         nushell
         nvtopPackages.amd
         obsidian
-        onlyoffice-desktopeditors
         perf
         qutebrowser
         remmina
@@ -121,10 +120,10 @@
   imports = [
     ./config/yt-dlp.nix
     ./config/ghostty.nix
-    ./config/lutris.nix
     ./config/starship.nix
     ./config/nushell.nix
     ./kitty/default.nix
+    # (import ./config/lutris.nix { pkgs = pkgs-stable; })
     (import ./sway/default.nix { lib = lib; pkgs = pkgs; })
     (import ./helix/default.nix { pkgs = pkgs; })
     (import ./config/themeing.nix { pkgs = pkgs; })
@@ -141,7 +140,6 @@
   };
 
   services = {
-    polkit-gnome.enable = true;
     kdeconnect.enable = true;
   };
   xdg.mimeApps = {
@@ -150,25 +148,8 @@
       "text/html" = "firefox";
       "x-scheme-handler/http" = "firefox";
       "x-scheme-handler/https" = "firefox";
-      "inode/directory" = "cosmic-filles";
-      "application/pdf" = "cosmic-reader";
-    };
-  };
-  systemd.user.services.polkit-gnome-authentication-agent-1 = {
-    Unit = {
-      Description = "polkit-gnome-authentication-agent-1";
-      Wants = [ "graphical-session.target" ];
-      After = [ "graphical-session.target" ];
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-    Service = {
-      Type = "simple";
-      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-      Restart = "on-failure";
-      RestartSec = 1;
-      TimeoutStopSec = 10;
+      "inode/directory" = "dolphin";
+      "application/pdf" = "okular";
     };
   };
 }

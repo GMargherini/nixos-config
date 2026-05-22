@@ -57,8 +57,10 @@
   services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.cosmic-greeter.enable = true;
-  services.desktopManager.cosmic.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.plasma-login-manager.enable = true;
+  services.displayManager.cosmic-greeter.enable = false;
+  services.desktopManager.cosmic.enable = false;
 
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];

@@ -13,6 +13,7 @@
   gtk = {
     enable = true;
 
+    gtk4.theme = null;
     theme = {
       package = pkgs.dracula-theme;
       name = "Dracula";
