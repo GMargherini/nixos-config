@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
@@ -52,7 +52,7 @@
               home-manager.extraSpecialArgs = { inherit pkgs-stable; };
             }
             (import ./home/noctalia/default.nix { inputs = inputs; })
-            (import ./home/config/nixvim.nix { inputs = inputs; pkgs = pkgs; })
+            # (import ./home/config/nixvim.nix { inputs = inputs; pkgs = pkgs; })
           ];
         };
       };

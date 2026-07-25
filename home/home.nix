@@ -22,6 +22,7 @@
       unstable = with pkgs; [
         adwaita-icon-theme
         alacritty
+        asunder
         audacity
         bat
         calc
@@ -29,13 +30,12 @@
         cdrkit
         clamav
         cowsay
-        devtoolbox
+#        devtoolbox
         discord
         dolphin-emu
         fastfetch
         fzf
         ghostty
-        godot
         grim
         heroic
         htop
@@ -56,13 +56,12 @@
         nixpkgs-fmt
         nushell
         nvtopPackages.amd
-        obsidian
-        onlyoffice-desktopeditors
-        pdftk
+#        pdftk
         perf
         qutebrowser
         remmina
         (retroarch.withCores (cores: with cores; [
+	  pkgs.libretro.citra
           dolphin
           mgba
           snes9x
@@ -72,25 +71,23 @@
         ripgrep-all
         ryubing
         scrcpy
+        shipwright
         slurp
         starship
         stylua
         swayfx
         tdf
-        texlive.combined.scheme-full
+        unrar
         uutils-coreutils-noprefix
         vimPlugins.LazyVim
         vlc
         webcamoid
         wineWow64Packages.staging
         yazi
-        zed-editor
-        zellij
       ];
       stable = with pkgs-stable; [
         lutris
         pika-backup
-        shipwright
 
         fira
         fira-code

@@ -118,6 +118,7 @@
     let
       unstable = with pkgs; [
         android-tools
+	exfat
         file
         gcc
         git
