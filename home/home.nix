@@ -1,4 +1,4 @@
-{ pkgs, pkgs-stable, lib, ... }:
+{ pkgs, pkgs-stable, lib, nixvim, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -30,7 +30,6 @@
         cdrkit
         clamav
         cowsay
-#        devtoolbox
         discord
         dolphin-emu
         fastfetch
@@ -134,10 +133,12 @@
     ./config/nushell.nix
     ./rofi/default.nix
     ./kitty/default.nix
+    (import ./nixvim/default.nix { lib = lib; pkgs = pkgs; })
     (import ./config/lutris.nix { pkgs = pkgs-stable; })
     (import ./sway/default.nix { lib = lib; pkgs = pkgs; })
     (import ./helix/default.nix { pkgs = pkgs; })
     (import ./config/themeing.nix { pkgs = pkgs; })
+    nixvim
   ];
   programs = {
     yazi = {
@@ -159,7 +160,7 @@
       "text/html" = "firefox";
       "x-scheme-handler/http" = "firefox";
       "x-scheme-handler/https" = "firefox";
-      "inode/directory" = "dolphin";
+      "inode/directory" = "cosmic-files";
       "application/pdf" = "okular";
     };
   };

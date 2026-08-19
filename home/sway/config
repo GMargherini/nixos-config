@@ -5,6 +5,7 @@
 # Read `man 5 sway` for a complete reference.
 
 exec /usr/lib/xdg-desktop-portal -r & /usr/lib/xdg-desktop-portal-wlr
+exec dbus-update-activation-environment --all
 exec noctalia-shell
 
 ### Variables

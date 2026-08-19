@@ -8,7 +8,7 @@
 
     home.file.".cache/noctalia/wallpapers.json" = {
       text = builtins.toJSON {
-        defaultWallpaper = "/home/dolphin/Pictures/Wallpapers/nix-d-nord-aurora.jpg";
+        defaultWallpaper = "/home/dolphin/Pictures/Wallpapers/4K/gruvbox-rainbow-nix.png";
       };
     };
     # configure options
@@ -78,7 +78,7 @@
             ];
           };
         };
-        colorSchemes.predefinedScheme = "Nord";
+        colorSchemes.predefinedScheme = "GruvboxAlt";
         general = {
           avatarImage = "/home/dolphin/.face";
           radiusRatio = 0.0;

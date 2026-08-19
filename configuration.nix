@@ -124,7 +124,6 @@
         git
         jq
         ly
-        neovim
         pmbootstrap
         pwvucontrol
         rustup

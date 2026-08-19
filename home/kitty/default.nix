@@ -6,7 +6,7 @@
       background_opacity = "0.7";
       shell = "nu";
     };
-    themeFile = "Nord";
+    themeFile = "gruvbox-dark";
     shellIntegration.enableFishIntegration = true;
   };
 }

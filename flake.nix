@@ -23,11 +23,12 @@
   };
 
   outputs =
-    inputs @ { nixpkgs, home-manager, nixpkgs-stable, ... }:
+    inputs @ { nixpkgs, home-manager, nixpkgs-stable, nixvim, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         system = system;
+        config.allowUnfree = true;
       };
       pkgs-stable = import nixpkgs-stable {
         system = system;
@@ -49,10 +50,10 @@
               home-manager.useUserPackages = true;
               home-manager.users.dolphin = ./home/home.nix;
               home-manager.backupFileExtension = "bak";
-              home-manager.extraSpecialArgs = { inherit pkgs-stable; };
+              home-manager.extraSpecialArgs = { inherit pkgs; inherit pkgs-stable; nixvim = nixvim.homeModules.nixvim; };
             }
             (import ./home/noctalia/default.nix { inputs = inputs; })
-            # (import ./home/config/nixvim.nix { inputs = inputs; pkgs = pkgs; })
+            #(import ./home/nixvim/default.nix { lib = lib; inputs = inputs; pkgs = pkgs; })
           ];
         };
       };
