@@ -67,7 +67,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --remember --secret-charachter '*' --user-menu --user-menu-max-uid 1000 --time --background matrix --cmd sway";
+          command = "${pkgs.tuigreet}/bin/tuigreet --remember --secret-character '*' --user-menu --user-menu-max-uid 1000 --time --background matrix --cmd sway";
           user = "greeter";
         };
       };
@@ -191,8 +191,10 @@
 
   virtualisation.docker = {
     enable = true;
-    rootless.enable = true;
-    rootless.setSocketVariable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

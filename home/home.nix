@@ -94,7 +94,6 @@
           tdf
           unrar
           uutils-coreutils-noprefix
-          vimPlugins.LazyVim
           vlc
           webcamoid
           wineWow64Packages.staging
