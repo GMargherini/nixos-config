@@ -2,16 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, pkgs-stable, ... }:
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./configs/programs.nix
-      # (import ./configs/amdgpu.nix {config=config; pkgs=pkgs;})
-    ];
-
+  pkgs,
+  pkgs-stable,
+  ...
+}:
+{
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./configs/programs.nix
+    # (import ./configs/amdgpu.nix {config=config; pkgs=pkgs;})
+  ];
   # Bootloader.
   boot = {
     loader.systemd-boot.enable = true;
@@ -59,8 +61,17 @@
   services = {
     xserver.enable = false;
     desktopManager.cosmic.enable = true;
-    desktopManager.plasma6.enable = true;
+    desktopManager.plasma6.enable = false;
 
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.tuigreet}/bin/tuigreet --remember --secret-charachter '*' --user-menu --user-menu-max-uid 1000 --time --background matrix --cmd sway";
+          user = "greeter";
+        };
+      };
+    };
     displayManager.ly = {
       enable = false;
       settings = {
@@ -103,7 +114,12 @@
   users.users.dolphin = {
     isNormalUser = true;
     description = "Dolphin";
-    extraGroups = [ "networkmanager" "wheel" "input" "adbusers" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+      "adbusers"
+    ];
   };
 
   # Install firefox.
@@ -111,19 +127,21 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages =
     let
       unstable = with pkgs; [
         android-tools
-	exfat
+        exfat
         file
         gcc
         git
         jq
-        ly
         pmbootstrap
         pwvucontrol
         rustup
@@ -142,7 +160,6 @@
     in
     unstable ++ stable;
 
-
   fonts.packages = with pkgs; [
     fira-code-symbols
     nerd-fonts.fira-code
@@ -160,7 +177,13 @@
 
   # Open ports in the firewall.
   networking.firewall = rec {
-    allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
+    allowedTCPPorts = [ 11434 ];
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
     allowedUDPPortRanges = allowedTCPPortRanges;
   };
   # Or disable the firewall altogether.

@@ -6,11 +6,11 @@
       inputs.noctalia.homeModules.default
     ];
 
-    home.file.".cache/noctalia/wallpapers.json" = {
-      text = builtins.toJSON {
-        defaultWallpaper = "/home/dolphin/Pictures/Wallpapers/4K/gruvbox-rainbow-nix.png";
-      };
-    };
+#     home.file.".cache/noctalia/wallpapers.json" = {
+#       text = builtins.toJSON {
+#         defaultWallpaper = "/home/dolphin/Pictures/Wallpapers/4K/gruvbox-rainbow-nix.png";
+#       };
+#     };
     # configure options
     programs.noctalia-shell = {
       enable = true;
@@ -21,7 +21,7 @@
           density = "compact";
           position = "top";
           useSeparateOpacity = true;
-          backgroundOpacity = 0;
+          # backgroundOpacity = 0;
           showCapsule = true;
           floating = false;
           widgets = {
@@ -49,7 +49,7 @@
                 id = "MediaMini";
               }
               {
-                id = "WiFi";
+                id = "Network";
               }
               {
                 id = "SystemMonitor";

@@ -20,10 +20,21 @@
     nixvim = {
       url = "github:nix-community/nixvim";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    inputs @ { nixpkgs, home-manager, nixpkgs-stable, nixvim, ... }:
+    inputs@{
+      nixpkgs,
+      home-manager,
+      nixpkgs-stable,
+      nixvim,
+      stylix,
+      ...
+    }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -46,16 +57,27 @@
             ./configuration.nix
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
+              home-manager.useGlobalPkgs = false;
               home-manager.useUserPackages = true;
               home-manager.users.dolphin = ./home/home.nix;
               home-manager.backupFileExtension = "bak";
-              home-manager.extraSpecialArgs = { inherit pkgs; inherit pkgs-stable; nixvim = nixvim.homeModules.nixvim; };
+              home-manager.extraSpecialArgs = {
+                inherit pkgs;
+                inherit pkgs-stable;
+                nixvim = nixvim.homeModules.nixvim;
+                stylix = stylix.homeModules.stylix;
+              };
             }
             (import ./home/noctalia/default.nix { inputs = inputs; })
-            #(import ./home/nixvim/default.nix { lib = lib; inputs = inputs; pkgs = pkgs; })
           ];
         };
+      };
+      homeConfigurations."dolphin" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs;
+        modules = [
+          stylix.homeModules.stylix
+          ./home/home.nix
+        ];
       };
     };
 }

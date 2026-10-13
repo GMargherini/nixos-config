@@ -3,7 +3,7 @@
     enable = true;
     package = pkgs.evil-helix;
     settings = {
-      theme = "material_darker";
+      # theme = "material_darker";
       editor = {
         line-number = "relative";
         lsp.display-messages = true;
