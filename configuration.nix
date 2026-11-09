@@ -67,7 +67,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --remember --secret-character '*' --user-menu --user-menu-max-uid 1000 --time --background matrix --cmd sway";
+          command = "${pkgs.tuigreet}/bin/tuigreet --remember --user-menu --user-menu-max-uid 1000 --time --background matrix --cmd sway";
           user = "greeter";
         };
       };
@@ -137,8 +137,10 @@
     let
       unstable = with pkgs; [
         android-tools
+        ddcutil
         exfat
         file
+        fish
         gcc
         git
         jq

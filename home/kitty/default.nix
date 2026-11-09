@@ -4,7 +4,7 @@
     settings = {
       font_family = "FiraCodeNerdFontMono";
       # background_opacity = "0.7";
-      shell = "nu";
+      shell = "fish";
     };
     # themeFile = "gruvbox-dark";
     shellIntegration.enableFishIntegration = true;

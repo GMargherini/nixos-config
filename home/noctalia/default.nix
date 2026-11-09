@@ -12,12 +12,15 @@
 #       };
 #     };
     # configure options
-    programs.noctalia-shell = {
+    programs.noctalia = {
       enable = true;
+      systemd.enable = true;
       settings = {
         # configure noctalia here; defaults will
         # be deep merged with these attributes.
         bar = {
+          thickness = 24;
+          background_opacity = 0.0;
           density = "compact";
           position = "top";
           useSeparateOpacity = true;
@@ -25,60 +28,30 @@
           showCapsule = true;
           floating = false;
           widgets = {
-            left = [
-              {
-                id = "Launcher";
-              }
-              {
-                hideUnoccupied = false;
-                id = "Workspace";
-                labelMode = "index";
-              }
+            start = [
+              "launcher"
+              "workspaces"
             ];
             center = [
               {
                 formatHorizontal = "ddd, dd MMM HH:mm";
                 formatVertical = "HH mm";
-                id = "Clock";
+                id = "clock";
                 useMonospacedFont = true;
                 usePrimaryColor = true;
               }
             ];
-            right = [
-              {
-                id = "MediaMini";
-              }
-              {
-                id = "Network";
-              }
-              {
-                id = "SystemMonitor";
-              }
-              {
-                id = "Bluetooth";
-              }
-              {
-                id = "Volume";
-              }
-              {
-                id = "Brightness";
-              }
-              {
-                alwaysShowPercentage = false;
-                id = "Battery";
-                warningThreshold = 30;
-              }
-              {
-                id = "Tray";
-              }
-              {
-                id = "SidePanelToggle";
-                useDistroLogo = true;
-              }
+            end = [
+              "media"
+              "network"
+              "volume"
+              "tray"
+              "battery"
+              "notifications"
+              "session"
             ];
           };
         };
-        colorSchemes.predefinedScheme = "GruvboxAlt";
         general = {
           avatarImage = "/home/dolphin/.face";
           radiusRatio = 0.0;

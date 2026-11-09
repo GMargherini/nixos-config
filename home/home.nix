@@ -66,7 +66,6 @@
           nil
           nixd
           nixpkgs-fmt
-          nushell
           nvtopPackages.amd
           ollama-vulkan
           # pdftk
@@ -147,7 +146,6 @@
   imports = [
     ./config/yt-dlp.nix
     ./config/starship.nix
-    ./config/nushell.nix
     ./kitty/default.nix
     (import ./nixvim/default.nix {
       lib = lib;

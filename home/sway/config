@@ -6,7 +6,7 @@
 
 exec /usr/lib/xdg-desktop-portal -r & /usr/lib/xdg-desktop-portal-wlr
 exec dbus-update-activation-environment --all
-exec noctalia-shell
+exec noctalia
 
 ### Variables
 #
@@ -26,42 +26,15 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu "noctalia-shell ipc call launcher toggle"
+set $ipc noctalia msg
+set $menu $ipc "panel-toggle launcher"
+
+bindsym $mod+comma exec $ipc settings-toggle
 
 
 include /etc/sway/config-vars.d/*
 include /etc/sway/config.d/*
 include config.d/*
-
-set {
-    $nag exec swaynagmode --background 2e3440 --border-bottom 81a1c1 \
-         --text dbdee9 --button-background 2e3440 --button-text dbdee9 \
-         --button-border-size 1 --border 81a1c1 
-    $nag_exit    $nag --exit
-    $nag_confirm $nag --confirm
-    $nag_select  $nag --select
-}
- mode "nag" {
-    bindsym {
-      Ctrl+d    mode "default"
-
-      Ctrl+c    $nag_exit
-      q         $nag_exit
-      Escape    $nag_exit
-
-      Return    $nag_confirm
-
-      Tab       $nag_select prev
-      Shift+Tab $nag_select next
-
-      Left      $nag_select next
-      Right     $nag_select prev
-
-      Up        $nag_select next
-      Down      $nag_select prev
-    }
-  }
-
 
 ### Key bindings
 #
@@ -92,14 +65,15 @@ set {
     bindsym $mod+Shift+Escape exec poweroff
 
 # Function keys
-bindsym XF86MonBrightnessDown exec sudo light -U 5
-bindsym XF86MonBrightnessUp exec sudo light -A 5
-bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.2
-bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.2
 bindsym --locked XF86AudioPlay exec playerctl play-pause
 bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
+
+bindsym --locked XF86AudioRaiseVolume exec $ipc volume-up
+bindsym --locked XF86AudioLowerVolume exec $ipc volume-down
+bindsym --locked XF86AudioMute exec $ipc volume-mute
+bindsym --locked XF86MonBrightnessUp exec $ipc brightness-up
+bindsym --locked XF86MonBrightnessDown exec $ipc brightness-down
 bindsym XF86Calculator exec $term -- calc
 bindsym $mod+Print exec GRIM_DEFAULT_DIR=~/Pictures/Screenshots grim -g "$(slurp)"
 
