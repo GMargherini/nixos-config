@@ -145,6 +145,7 @@
 
   imports = [
     ./config/yt-dlp.nix
+    ./config/fish.nix
     ./config/starship.nix
     ./kitty/default.nix
     (import ./nixvim/default.nix {
